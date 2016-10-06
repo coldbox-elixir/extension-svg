@@ -1,6 +1,7 @@
-# Laravel Elixir SVG Symbols
+# ColdBox Elixir SVG
 
-Extension to Laravel Elixir that uses `gulp-svg-sprite` to generate a sprite file out of individual SVG files. Consider it the image spriting technique but for SVGs. It's **highly recommended** to read these awesome articles to learn  all about this technique:
+Extension to ColdBox Elixir that uses `gulp-svg-sprite` to deal with SVG images.
+Right now it can generate a sprite file out of individual SVG files. Consider it the image spriting technique but for SVGs. It's **highly recommended** to read these awesome articles to learn  all about this technique:
 
 * [Icon System with SVG Sprites](http://css-tricks.com/svg-sprites-use-better-icon-fonts/)
 * [SVG `symbol` a Good Choice for Icons](http://css-tricks.com/svg-symbol-good-choice-icons/)
@@ -10,26 +11,26 @@ Extension to Laravel Elixir that uses `gulp-svg-sprite` to generate a sprite fil
 ## Install
 
 ```
-npm install laravel-elixir-svg-symbols --save
+npm install coldbox-elixir-svg --save-dev
 ```
 
 ## Use
 
 ```javascript
-var elixir = require('laravel-elixir');
+var elixir = require( "coldbox-elixir" );
 
-require('laravel-elixir-svg-symbols');
+require( "coldbox-elixir-svg" );
 
-elixir(function(mix) {
-    mix.svgSprite();
-});
+elixir( function( mix ) {
+    mix.svgSpriteheet();
+} );
 ```
 
-Yes, it's that simple. This will use the extension's default options, which are to find `.svg` files inside an `svg` directory in your assets directory (either Laravel's default or your own defined in `elixir.json`). It will output a sprite file named as `sprite.svg` to `public/svg` which can then be included in your project's markup.
+This will use the extension's default options, which are to find `.svg` files inside an `svg` directory in your assets directory. It will output a sprite file named as `sprite.svg` to `includes/svg` which can then be included in your project's markup.
 
 ```html
     <svg class="icon">
-        <use xlink:href="/svg/sprite.svg#icon-example"></use>
+        <use xlink:href="/includes/svg/sprite.svg#icon-example"></use>
     </svg>
 ```
 
@@ -38,12 +39,12 @@ Yes, it's that simple. This will use the extension's default options, which are 
 You can override the extension's settings by passing the following optional parameters like:
 
 ```javascript
-    mix.svgSprite(src, output, pluginOptions)
+    mix.svgSpriteheet( src, output, pluginOptions );
 ```
 
 ### src
 
-Path to the directory that holds the individual SVGs. Set as `null` if default is fine.
+Path to the directory that holds the individual SVGs. Set as `null` if the default is fine.
 
 ### output
 
@@ -58,26 +59,36 @@ Options passed along directly to [gulp-svg-sprite](https://github.com/jkphl/gulp
 This example sets custom source and output directories, and changes the generated file name to `symbols.svg`.
 
 ```javascript
-var elixir = require('laravel-elixir');
+var elixir = require( "coldbox-elixir" );
 
-require('laravel-elixir-svg-symbols');
+require( "coldbox-elixir-svg" );
 
-elixir(function(mix) {
-    mix.svgSymbols('my/assets/directory/', 'my/output/directory/', {
+elixir( function( mix ) {
+    mix.svgSpriteheet( "my/assets/directory/", "my/output/directory/", {
         mode: {
             symbol: {
-                dest: '.',
-                sprite: 'symbols.svg'
+                dest: ".",
+                sprite: "symbols.svg"
             }
         }
-    });
-});
+    } );
+} );
 ```
 
 For more complex examples and all the `svg-sprite` documentation, [check out its repo](https://github.com/jkphl/svg-sprite).
 
-## All credit goes to
+## Versioning
 
-* [Chris Coyer](http://chriscoyier.net/) for blowing my mind with the [SVG sprite technique and SVG symbols](http://css-tricks.com/svg-symbol-good-choice-icons/).
-* [Joschi Kuphal](http://jkphl.is) for his awesome [svg-sprite](https://github.com/jkphl/svg-sprite) utility and the [gulp-svg-sprite](https://github.com/jkphl/gulp-svg-sprite) wrapper.
-* All contributors to the [Laravel Elixir](https://github.com/laravel/elixir) project and the [Laravel](http://laravel.com/) PHP framework.
+Don't forget that you can use the `mix.version` command to version your SVG spritesheet.
+
+```javascript
+elixir( function( mix ) {
+    mix.svgSpriteheet();
+
+    mix.version( "svg/sprite.svg" );
+} );
+```
+
+## Credits
+
+* [Laravel Elixir SVG Symbols](https://github.com/waldemarfm/laravel-elixir-svg-symbols) for the initial repo that was forked.

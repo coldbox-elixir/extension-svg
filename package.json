@@ -1,28 +1,36 @@
 {
-  "name": "laravel-elixir-svg-symbols",
-  "description": "Laravel Elixir extension for SVG sprites",
-  "version": "1.0.1",
+  "name": "coldbox-elixir-svg",
+  "description": "ColdBox Elixir extension for dealing with SVG",
+  "version": "1.0.0",
   "author": "Waldemar Figueroa <walde.fm@gmail.com>",
+  "contributors": [
+    "Eric Peterson"
+  ],
   "bugs": {
-    "url": "https://github.com/waldemarfm/laravel-elixir-svg-symbols/issues"
+    "url": "https://github.com/elpete/extension-svg/issues"
   },
   "dependencies": {
     "gulp-svg-sprite": "^1.2.0"
   },
-  "homepage": "https://github.com/waldemarfm/laravel-elixir-svg-symbols",
+  "homepage": "https://github.com/elpete/extension-svg",
   "keywords": [
     "elixir",
     "gulp",
-    "laravel",
+    "coldbox",
     "svg"
   ],
   "license": "ISC",
-  "main": "index.js",
+  "main": "dist/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/waldemarfm/laravel-elixir-svg-symbols.git"
+    "url": "https://github.com/elpete/extension-svg.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile": "babel --presets=es2015 -d dist src",
+    "prepublish": "npm run compile"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.16.0",
+    "babel-preset-es2015": "^6.16.0"
   }
 }
