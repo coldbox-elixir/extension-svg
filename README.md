@@ -89,6 +89,10 @@ elixir( function( mix ) {
 } );
 ```
 
+## ColdBox and `cbsvg`
+
+This package works hand in hand with [`cbsvg`](https://github.com/elpete/cbsvg), a ColdBox module for easily using svg icons in your projects.  It is configured to use the same ColdBox conventions, so just `box install cbsvg` and use it with your spritesheet out of the box with no extra configuration!
+
 ## Credits
 
 * [Laravel Elixir SVG Symbols](https://github.com/waldemarfm/laravel-elixir-svg-symbols) for the initial repo that was forked.
