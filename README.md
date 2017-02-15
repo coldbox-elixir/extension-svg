@@ -8,13 +8,13 @@ Right now it can generate a sprite file out of individual SVG files. Consider it
 * [SVG `use` with External Reference](https://css-tricks.com/svg-use-with-external-reference-take-2/)
 * [SVG for Everybody](https://github.com/jonathantneal/svg4everybody)
 
-## Install
+### Install
 
 ```
 npm install coldbox-elixir-svg --save-dev
 ```
 
-## Use
+### Use
 
 ```javascript
 var elixir = require( "coldbox-elixir" );
@@ -34,7 +34,7 @@ This will use the extension's default options, which are to find `.svg` files in
     </svg>
 ```
 
-## Configure
+### Configure
 
 You can override the extension's settings by passing the following optional parameters like:
 
@@ -42,19 +42,19 @@ You can override the extension's settings by passing the following optional para
     mix.svgSpriteheet( src, output, pluginOptions );
 ```
 
-### src
+#### src
 
 Path to the directory that holds the individual SVGs. Set as `null` if the default is fine.
 
-### output
+#### output
 
 Path to the directory that will hold the generated spritesheet file. Set as `null` if default is fine.
 
-### pluginOptions
+#### pluginOptions
 
 Options passed along directly to [gulp-svg-sprite](https://github.com/jkphl/gulp-svg-sprite). Read the README for more info on these.
 
-## Example
+### Example
 
 This example sets custom source and output directories, and changes the generated file name to `symbols.svg`.
 
@@ -77,7 +77,7 @@ elixir( function( mix ) {
 
 For more complex examples and all the `svg-sprite` documentation, [check out its repo](https://github.com/jkphl/svg-sprite).
 
-## Versioning
+### Versioning
 
 Don't forget that you can use the `mix.version` command to version your SVG spritesheet.
 
@@ -89,10 +89,18 @@ elixir( function( mix ) {
 } );
 ```
 
-## ColdBox and `cbsvg`
+### ColdBox and `cbsvg`
 
 This package works hand in hand with [`cbsvg`](https://github.com/elpete/cbsvg), a ColdBox module for easily using svg icons in your projects.  It is configured to use the same ColdBox conventions, so just `box install cbsvg` and use it with your spritesheet out of the box with no extra configuration!
 
-## Credits
+### Credits
 
 * [Laravel Elixir SVG Symbols](https://github.com/waldemarfm/laravel-elixir-svg-symbols) for the initial repo that was forked.
+
+## Contributions and Bugs
+
+Project tracking for this project can be found at the [Ortus Solutions Jira](https://ortussolutions.atlassian.net/projects/ELIXIR/summary).  Please log all bugs, improvements, and features there.
+
+Pull requests are welcome and encouraged.  Please [check on the Jira page](https://ortussolutions.atlassian.net/projects/ELIXIR/issues/?filter=allissues) before starting any large amount of work so your time isn't wasted.
+
+Brad Wood (@bdw429s) has a [great guide on submitting pull requests.](https://www.ortussolutions.com/blog/submit-your-first-pull-request-to-an-open-source-project)  If you are unsure where to go, in need of help, or have a question, come ask in the #box-products channel on the [CFML Slack](http://cfml-slack.herokuapp.com/).
